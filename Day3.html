@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style3.css" />
+    <title>Day-3</title>
+  </head>
+  <body>
+    <div class="container">
+      <form action="#">
+        <h1 class="form-heading">Payment Form</h1>
+        <hr />
+        <h2 class="user-info">User Information</h2>
+        <p>
+          Name: *
+          <input type="text" name="name" id="name" placeholder="Mateen" required autocomplete="off"/>
+        </p>
+        <p>
+          Email: *
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="mateen@gmail.com"
+            required autocomplete="off"
+          />
+        </p>
+        <p>
+            <fieldset>
+                <legend>Gender</legend>
+                Male <input type="radio" name="gender" id="male" value="male">
+                Female <input type="radio" name="gender" id="female" value="female">
+            </fieldset>
+        </p>
+        <p>Address:  <textarea name="address" id="address" cols="30" rows="10" ></textarea></p>
+        <p>Pincode: <input type="number" name="pincode" id="pincode" placeholder="12876" required autocomplete="off"></p>
+
+        <h2 class="user-info">Payment Information</h2>
+        <p>Card Type: *<select name="card-type" id="card-type">
+            <option value="--Select Card Type --">--Select Card Type --</option>
+            <option value="Debit Card">Debit Card</option>
+            <option value="Master Card">Master Card</option>
+            <option value="Union Pay">Master Union Pay</option>
+        </select></p>
+
+        <p>Card Number: * <input type="number" placeholder="1231-5432-8765-1276" name="card-num" id="card-num"></p>
+        <p>Expiry Date: * <input type="date" name="date" id="date"></p>
+        <button type="submit" id="btn">Pay Now</button>
+      </form>
+    </div>
+  </body>
+</html>
