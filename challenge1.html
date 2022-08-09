@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge - 4</title>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      header {
+        width: 100%;
+        height: auto;
+      }
+
+      .banner {
+        padding: 50px 0;
+        background-color: cadetblue;
+        color: #fff;
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      nav {
+        padding: 1rem 1.5rem;
+        overflow: hidden;
+        background-color: chocolate;
+      }
+
+      nav ul {
+        list-style: none;
+        position: sticky;
+        top: 0;
+      }
+
+      nav ul li {
+        display: inline-block;
+      }
+
+      nav ul li a {
+        padding: 5px 10px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #fff;
+        letter-spacing: 0.6px;
+      }
+
+      nav ul li a:hover {
+        color: black;
+      }
+
+      /* Flexbox challenge start */
+      .flex-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+        margin: 1rem 0;
+      }
+
+      .box {
+        flex-basis: 33%;
+        padding: 5px;
+        background-color: indianred;
+        border-radius: 5px;
+        height: 200px;
+      }
+
+      .first-row,
+      .second-row,
+      .third-row {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .row-boxs {
+        background-color: antiquewhite;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 7px 0;
+      }
+
+      .inner-box1 {
+        flex-basis: 32%;
+      }
+      .inner-box2 {
+        flex-basis: 24%;
+      }
+      .inner-box3 {
+        flex-basis: 19%;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 5px;
+        margin: 10px 0;
+      }
+
+      .row-boxes {
+        background-color: indianred;
+        padding: 13px;
+        color: #fff;
+        border-radius: 5px;
+      }
+
+      .row2 {
+        flex-basis: 24%;
+      }
+
+      .row3 {
+        flex-basis: 19%;
+      }
+      /* Flexbox challenge end */
+
+      /* Challeng #2 */
+      .flex-container2 {
+        width: 90%;
+        margin: 4% auto;
+      }
+
+      .row1-flex2 {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .card {
+        flex-basis: 32%;
+        background-color: lightgray;
+        border-radius: 3px;
+        height: fit-content;
+      }
+
+      .card img {
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      .inner-card {
+        padding: 10px;
+      }
+
+      .inner-card span {
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .inner-card p {
+        font-size: 14px;
+        letter-spacing: 1px;
+        text-align: justify;
+        margin: 12px 0;
+      }
+
+      #card-btn {
+        width: 100%;
+        padding: 13px;
+        font-size: 1rem;
+        letter-spacing: 0.7px;
+        border: 1px solid #cccc;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: #b0c4de;
+      }
+
+      #card-btn:hover {
+        background-color: #82a6d6;
+      }
+
+      /* challenge-3 start */
+      .flex-container3 {
+        display: flex;
+        font-size: 20px;
+      }
+
+      .nav-div {
+        flex-basis: 20%;
+        background-color: #b0c4de;
+        height: 100vh;
+        padding: 20px;
+      }
+
+      .content-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .content-section header {
+        background-color: cadetblue;
+        height: 20vh;
+        padding: 30px;
+      }
+
+      .content-section article {
+        padding: 20px;
+        height: 70vh;
+        background-color: lightcyan;
+      }
+
+      .content-section footer {
+        background-color: coral;
+        padding: 20px;
+      }
+      /* challenge-3 end */
+
+      /* Responsive CSS start */
+      .responsive-heading {
+        margin: 15px 0;
+        text-align: center;
+      }
+
+      div.gallery {
+        border: 1px solid #ccc;
+      }
+
+      div.gallery:hover {
+        border: 1px solid #000;
+      }
+
+      div.gallery img {
+        width: 100%;
+        height: auto;
+      }
+
+      div.desc {
+        padding: 15px;
+        text-align: center;
+      }
+
+      .responsive {
+        padding: 0 6px;
+        float: left;
+        width: 24.999%;
+        margin: 10px 0;
+      }
+
+      @media (max-width: 768px) {
+        .responsive {
+          width: 49.99%;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .responsive {
+          width: 100%;
+        }
+      }
+
+      /* Responsive CSS end */
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="banner">Products</p>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem qui
+        enim modi eum expedita fuga eos cum, aut impedit unde odit consequuntur,
+        dicta quasi, reiciendis voluptatem nobis. Quam, officiis! Fugiat
+        voluptas quis voluptatem nesciunt, dolores dolore velit sapiente itaque
+        saepe sit tenetur culpa accusantium. Suscipit sunt repellendus nihil,
+        laborum reprehenderit aperiam, aspernatur culpa pariatur recusandae,
+        optio blanditiis consequatur sed labore. Doloribus, placeat. Fugit
+        temporibus perspiciatis aliquid rem doloribus esse illo! Quisquam
+        facilis iste sunt harum quam labore, culpa, temporibus nobis quos ab
+        itaque maxime error adipisci sint, officiis nostrum quod quas architecto
+        suscipit dignissimos dicta minima. Ea dicta impedit deserunt.
+      </p>
+
+      <!-- Flexbox challenge start -->
+      <div class="flex-container">
+        <div class="box row-1">
+          1
+          <div class="first-row">
+            <div class="row-boxs inner-box1">1</div>
+            <div class="row-boxs inner-box1">2</div>
+            <div class="row-boxs inner-box1">3</div>
+          </div>
+          <div class="second-row">
+            <div class="row-boxs inner-box2">1</div>
+            <div class="row-boxs inner-box2">2</div>
+            <div class="row-boxs inner-box2">3</div>
+            <div class="row-boxs inner-box2">4</div>
+          </div>
+          <div class="third-row">
+            <div class="row-boxs inner-box3">1</div>
+            <div class="row-boxs inner-box3">2</div>
+            <div class="row-boxs inner-box3">3</div>
+            <div class="row-boxs inner-box3">4</div>
+            <div class="row-boxs inner-box3">5</div>
+          </div>
+        </div>
+        <div class="box box-2">2</div>
+        <div class="box box-3">3</div>
+      </div>
+
+      <div class="row">
+        <div class="row-boxes row2">1</div>
+        <div class="row-boxes row2">2</div>
+        <div class="row-boxes row2">3</div>
+        <div class="row-boxes row2">4</div>
+      </div>
+
+      <div class="row">
+        <div class="row-boxes row3">1</div>
+        <div class="row-boxes row3">2</div>
+        <div class="row-boxes row3">3</div>
+        <div class="row-boxes row3">4</div>
+        <div class="row-boxes row3">5</div>
+      </div>
+
+      <!-- Flexbox challenge end -->
+
+      <!-- Flexbox challenge-2 start -->
+      <div class="flex-container2">
+        <div class="row1-flex2">
+          <div class="card card1">
+            <img src="./img/img.jpg" alt="Image" />
+            <div class="inner-card">
+              <span>Flexbox task</span>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Numquam nam corporis veritatis repellendus distinctio eveniet.
+              </p>
+              <button type="button" id="card-btn">Read More</button>
+            </div>
+          </div>
+          <div class="card card2">
+            <img src="./img/img.jpg" alt="Image" />
+            <div class="inner-card">
+              <span>Flexbox task</span>
+              <p>Lorem ipsum dolor sit amet.</p>
+              <button type="button" id="card-btn">Read More</button>
+            </div>
+          </div>
+          <div class="card card3">
+            <img src="./img/img.jpg" alt="Image" />
+            <div class="inner-card">
+              <span>Flexbox task</span>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Numquam nam corporis veritatis repellendus distinctio eveniet.
+              </p>
+              <button type="button" id="card-btn">Read More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Flexbox challenge-2 end -->
+
+      <!-- Challenge-3 start -->
+      <div class="flex-container3">
+        <div class="nav-div">Nav</div>
+        <div class="content-section">
+          <header>Header</header>
+          <article>Article</article>
+          <footer>footer</footer>
+        </div>
+      </div>
+      <!-- Challenge-3 end -->
+
+      <!-- Responsive Image Gallery start -->
+
+      <h1 class="responsive-heading">Responsive Image Gallery</h1>
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="./img//img.jpg">
+            <img
+              src="./img/img_lights.jpg"
+              alt="Cinque Terre"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+      </div>
+
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="./img/img.jpg">
+            <img
+              src="./img/img_lights.jpg"
+              alt="Forest"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+      </div>
+
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="./img/img.jpg">
+            <img
+              src="./img/img_lights.jpg"
+              alt="Northern Lights"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+      </div>
+
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="./img/img.jpg">
+            <img
+              src="./img/img_lights.jpg"
+              alt="Mountains"
+              width="600"
+              height="400"
+            />
+          </a>
+          <div class="desc">Add a description of the image here</div>
+        </div>
+      </div>
+      <!-- Responsive Image Gallery end -->
+    </main>
+  </body>
+</html>
