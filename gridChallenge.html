@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .heading {
+        text-align: center;
+        margin: 10px auto;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+      }
+
+      .nested-item {
+        display: grid;
+        gap: 10px;
+      }
+
+      .item {
+        background-color: cadetblue;
+        border-radius: 3px;
+        padding: 10px;
+      }
+
+      /* Challenge - 2 start */
+      .challenge-2 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .grid-container-2 {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        gap: 10px;
+        overflow-x: hidden;
+      }
+
+      .nested-item-2 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 80px 600px 80px;
+        gap: 10px;
+      }
+
+      .main-section {
+        display: grid;
+        grid-template-columns: 80% 20%;
+        gap: 10px;
+      }
+
+      #nav {
+        height: 780px;
+      }
+      /* Challenge - 2 end */
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 class="heading">Grid Template</h1>
+      <!-- Grid Container start -->
+      <div class="grid-container">
+        <!-- 1st Nested item start -->
+        <div class="nested-item">
+          <div class="item">1</div>
+        </div>
+        <!-- 1st Nested item end -->
+        <!-- 2nd Nested item start -->
+        <div class="nested-item">
+          <div class="item">2</div>
+          <div class="item">3</div>
+        </div>
+        <!-- 2nd Nested item end -->
+        <!-- 3rd Nested item start -->
+        <div class="nested-item">
+          <div class="item">4</div>
+          <div class="item">5</div>
+          <div class="item">6</div>
+        </div>
+        <!-- 3rd Nested item end -->
+        <!-- 4th Nested item start -->
+        <div class="nested-item">
+          <div class="item">7</div>
+          <div class="item">8</div>
+          <div class="item">9</div>
+          <div class="item">10</div>
+        </div>
+        <!-- 4th Nested item end -->
+        <!-- 5th Nested item start -->
+        <div class="nested-item">
+          <div class="item">11</div>
+          <div class="item">12</div>
+          <div class="item">13</div>
+          <div class="item">14</div>
+          <div class="item">15</div>
+          <div class="item">16</div>
+        </div>
+        <!-- 5th Nested item end -->
+        <!-- 6th Nested item start -->
+        <div class="nested-item">
+          <div class="item">17</div>
+          <div class="item">18</div>
+          <div class="item">19</div>
+          <div class="item">20</div>
+          <div class="item">21</div>
+          <div class="item">22</div>
+          <div class="item">23</div>
+          <div class="item">24</div>
+          <div class="item">25</div>
+          <div class="item">26</div>
+          <div class="item">27</div>
+          <div class="item">28</div>
+        </div>
+        <!-- 6th Nested item end -->
+      </div>
+      <!-- Grid Container end -->
+
+      <!-- Challenge - 2 start -->
+      <section class="challenge-2">
+        <h2 class="heading">Challenge - 2</h2>
+        <div class="grid-container-2">
+          <!-- Nested item - 1 start -->
+          <div class="nested-item-2">
+            <div class="item" id="nav">Nav</div>
+          </div>
+          <!-- Nested item - 1 end -->
+
+          <div class="nested-item-2">
+            <div class="item">Header</div>
+            <div class="main-section">
+              <div class="item">Article</div>
+              <div class="item">Ads</div>
+            </div>
+            <div class="item">Footer</div>
+          </div>
+        </div>
+      </section>
+      <!-- Challenge - 2 end -->
+    </main>
+  </body>
+</html>

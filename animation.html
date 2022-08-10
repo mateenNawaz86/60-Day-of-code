@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      span {
+        padding: 25px;
+        border-radius: 50%;
+        background-color: steelblue;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        position: relative;
+        cursor: pointer;
+        color: #fff;
+        display: inline-block;
+        margin-left: 100px;
+        margin-top: 200px;
+        animation: bouncing 0.5s ease infinite alternate;
+      }
+
+      @keyframes bouncing {
+        0% {
+          bottom: 0px;
+          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+        }
+
+        100% {
+          bottom: 50px;
+          box-shadow: 0 50px 50px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      .clip-path {
+        animation: rotating 2.5s ease infinite;
+        clip-path: polygon(
+          50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%
+        );
+        width: 100px;
+        height: 100px;
+        margin-left: 200px;
+      }
+
+      @keyframes rotating {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <span>Bouncing</span>
+    <img class="clip-path" src="./img/img.jpg" alt="User image" />
+  </body>
+</html>
