@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Roboto:wght@300;400;500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  background-color: #000;
+}
+
+.banner {
+  background-image: url(./assets/pk.gif);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 50%;
+  height: 20vw;
+  min-height: 100px;
+  background-attachment: fixed;
+}
+
+nav {
+  display: flex;
+  background-color: #333;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 20px;
+  padding: 15px 20px;
+  display: block;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 0.8px;
+  float: left;
+  transition: all 0.3s ease;
+}
+
+nav a.active {
+  color: orange;
+}
+
+nav a:hover {
+  color: orange;
+}
+
+#align-item-right {
+  margin-left: auto;
+}
+
+/* Section styling start */
+section {
+  width: 90%;
+  margin: 50px auto;
+}
+
+section h2 {
+  text-align: center;
+}
+
+section h2 span {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0px 2px #333;
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+  padding: 10px 50px;
+  border-radius: 10px;
+}
+
+.section-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.item {
+  flex-basis: 32.99%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: lightgray;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.item iframe {
+  width: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.inner-content {
+  padding: 15px 15px 20px;
+}
+
+.inner-content span {
+  font-size: 18px;
+  color: #008b8b;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.inner-content p {
+  font-size: 15;
+  letter-spacing: 0.5px;
+  margin: 10px 0 15px 0;
+  line-height: 1.4;
+  text-align: justify;
+}
+#btn {
+  padding: 8px 13px;
+  font-size: 15px;
+  letter-spacing: 0.6px;
+  background-color: #008b8b;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#btn:hover {
+  background-color: #0b6161;
+}
+/* Section styling end */
+
+/* responsive code for navbar */
+@media screen and (max-width: 700px) {
+  nav {
+    flex-direction: column;
+  }
+
+  #align-item-right {
+    margin-left: 0;
+  }
+}
