@@ -27,13 +27,6 @@
     <link rel="manifest" href="./assets/favicon_io/site.webmanifest" />
     <!-- Css File -->
     <link rel="stylesheet" href="./style.css" />
-
-    <!-- Carousel link -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/css/swiffy-slider.min.css"
-      rel="stylesheet"
-      crossorigin="anonymous"
-    />
   </head>
   <body>
     <header>
@@ -41,15 +34,15 @@
 
       <nav>
         <a href="#" class="active">Home</a>
-        <a href="#">Culture's</a>
-        <a href="#">Tourist Places</a>
-        <a href="#">Industeries</a>
+        <a href="#culture">Culture's</a>
+        <a href="#tourist-places">Tourist Places</a>
+        <a href="#industries">Industeries</a>
         <a href="#" id="align-item-right">Register Now</a>
       </nav>
     </header>
 
     <main>
-      <section>
+      <section class="section-container" id="culture">
         <h2><span>Pakistan Culture's</span></h2>
 
         <div class="section-items">
@@ -72,7 +65,7 @@
                 has a rich history along with its own language and traditions.
                 On 6 March, the Saraiki cultural day is also celebrated.
               </p>
-              <button type="button" id="btn">Read More</button>
+              <button type="button" class="btn">Read More</button>
             </div>
           </div>
           <div class="item">
@@ -95,7 +88,7 @@
                 the fundamentals of the religion of Islam into their mother
                 tongue.
               </p>
-              <button type="button" id="btn">Read More</button>
+              <button type="button" class="btn">Read More</button>
             </div>
           </div>
           <div class="item">
@@ -118,7 +111,7 @@
                 divided tribes also have heads known as “Malik” or “Takari” or
                 “Mir”.
               </p>
-              <button type="button" id="btn">Read More</button>
+              <button type="button" class="btn">Read More</button>
             </div>
           </div>
         </div>
@@ -144,7 +137,7 @@
                 Afghanistan (occasionally referred to as the Pashtunistan
                 region).
               </p>
-              <button type="button" id="btn">Read More</button>
+              <button type="button" class="btn">Read More</button>
             </div>
           </div>
           <div class="item">
@@ -167,7 +160,7 @@
                 heritage of Gilgit-Baltistan, Pakistan manifests itself in local
                 traditions.
               </p>
-              <button type="button" id="btn">Read More</button>
+              <button type="button" class="btn">Read More</button>
             </div>
           </div>
           <div class="item">
@@ -190,22 +183,189 @@
                 consider the various Kalash people to have been migrants or
                 refugees.
               </p>
-              <button type="button" id="btn">Read More</button>
+              <button type="button" class="btn">Read More</button>
             </div>
           </div>
         </div>
       </section>
 
-      <section>
+      <!-- Tourist Places section start -->
+      <section class="section-container" id="tourist-places">
         <h2><span>Tourist Places</span></h2>
+
+        <div class="places">
+          <div class="place">
+            <img src="./assets/img/islamabad.jpeg" alt="islamabad" />
+            <div class="img__overlay">
+              <a target="_blank" href="https://youtu.be/7_WuTK9fH9Y" class="btn"
+                >View More</a
+              >
+              <p>Islamabad is the capital city of Pakistan</p>
+            </div>
+          </div>
+          <div class="place">
+            <img src="./assets/img/karachi.jpg" alt="karachi" />
+            <div class="img__overlay">
+              <a target="_blank" href="https://youtu.be/15W4PLDYDfw" class="btn"
+                >View More</a
+              >
+              <p>Karachi is a city of light's.</p>
+            </div>
+          </div>
+          <div class="place">
+            <img src="./assets/img/lahore.jpg" alt="Lahore" />
+            <div class="img__overlay">
+              <a target="_blank" href="https://youtu.be/R_t0qhgpB5I" class="btn"
+                >View More</a
+              >
+              <p>Lahore is the capital of the Pakistani province of Punjab.</p>
+            </div>
+          </div>
+        </div>
+        <div class="places">
+          <div class="place">
+            <img src="./assets/img/Multan.jpg" alt="Multan" />
+            <div class="img__overlay">
+              <a target="_blank" href="https://youtu.be/7_WuTK9fH9Y" class="btn"
+                >View More</a
+              >
+              <p>
+                Multan is a city and capital of Multan Division located in
+                Punjab
+              </p>
+            </div>
+          </div>
+          <div class="place">
+            <img src="./assets/img/hunza.jpg" alt="hunza" />
+            <div class="img__overlay">
+              <a target="_blank" href="https://youtu.be/1j9wYgK88hM" class="btn"
+                >View More</a
+              >
+              <p>
+                The Hunza Valley is a mountainous valley in the northern
+                Pakistan.
+              </p>
+            </div>
+          </div>
+          <div class="place">
+            <img src="./assets/img/kalam.jpg" alt="kalam" />
+            <div class="img__overlay">
+              <a target="_blank" href="https://youtu.be/oBOkBc9vXCY" class="btn"
+                >View More</a
+              >
+              <p>
+                Kalam is a valley located 99 kilometres (62 mi) from Mingora in
+                the northern Pakistan.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="places">
+          <div class="place">
+            <img src="./assets/img/Kashmir.webp" alt="Kashmir" />
+            <div class="img__overlay">
+              <a target="_blank" href="https://youtu.be/i_Uvs5ydEPw" class="btn"
+                >View More</a
+              >
+              <p>
+                Kashmir is the northernmost geographical region of the Indian
+                subcontinent.
+              </p>
+            </div>
+          </div>
+          <div class="place">
+            <img src="./assets/img/Sakardu.jpg" alt="Skardu" />
+            <div class="img__overlay">
+              <a target="_blank" href="https://youtu.be/Hl-r8REgLps" class="btn"
+                >View More</a
+              >
+              <p>Skardu is a city located in Gilgit−Baltistan.</p>
+            </div>
+          </div>
+          <div class="place">
+            <img src="./assets/img/Malam-jabba.jpg" alt="Malam-jabba" />
+            <div class="img__overlay">
+              <a target="_blank" href="https://youtu.be/oBOkBc9vXCY" class="btn"
+                >View More</a
+              >
+              <p>
+                Malam Jabba is a Hill Station and ski resort in the Hindu Kush
+                mountain range.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
+      <!-- Tourist Places section end -->
+
+      <!-- Industries section start -->
+      <section class="section-container" id="industries">
+        <h2><span>Industries</span></h2>
+
+        <div class="industry-container">
+          <div class="indust-item">
+            <img src="./assets/img/Mining.jpeg" alt="Mining" />
+            <div class="detail">
+              <span>Mining</span>
+              <p>
+                Mining is the extraction of valuable minerals or other
+                geological materials from the Earth, usually from an ore body,
+                lode, vein, seam, reef, or placer deposit.
+              </p>
+              <a href="https://youtu.be/KwWvobX-ms4" target="_blank" class="btn"
+                >Read More</a
+              >
+            </div>
+          </div>
+          <div class="indust-item">
+            <img src="./assets/img/textile.jpg" alt="Mining" />
+            <div class="detail">
+              <span>Textile</span>
+              <p>
+                Pakistan is the 8th largest exporter of textile products in
+                Asia. It is 4th largest producer and 3rd largest consumer of
+                cotton.
+              </p>
+              <a href="https://youtu.be/6ocvbbMXVzo" target="_blank" class="btn"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="industry-container">
+          <div class="indust-item">
+            <img src="./assets/img/sport.jpg" alt="Mining" />
+            <div class="detail">
+              <span>Sports</span>
+              <p>
+                More than 200,000 people are directly employed in the sports
+                goods sector exporting sports goods worth US$ 450 millions
+                annually from around 2,400 companies.
+              </p>
+              <a href="https://youtu.be/eiqv0WiGM-w" target="_blank" class="btn"
+                >Read More</a
+              >
+            </div>
+          </div>
+          <div class="indust-item">
+            <img src="./assets/img/agriculture.jpeg" alt="Mining" />
+            <div class="detail">
+              <span>Agriculture</span>
+              <p>
+                Pakistan's agriculture sector plays a central role in the
+                economy as it contributes 18.9 percent to GDP and absorbs 42.3
+                percent of labour force.
+              </p>
+              <a href="https://youtu.be/oGmZGW4fSf0" target="_blank" class="btn"
+                >Read More</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Industries section end -->
     </main>
 
-    <!-- Carousel Link -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/js/swiffy-slider.min.js"
-      crossorigin="anonymous"
-      defer
-    ></script>
+    <footer>&copy; Copyright All Right's Reserved 2022.</footer>
   </body>
 </html>

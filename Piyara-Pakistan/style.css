@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -54,16 +55,18 @@ nav a:hover {
 }
 
 /* Section styling start */
-section {
+.section-container {
   width: 90%;
-  margin: 50px auto;
+  padding: 60px 0 30px;
+  margin: 0 auto;
 }
 
-section h2 {
+.section-container h2 {
   text-align: center;
+  margin-bottom: 50px;
 }
 
-section h2 span {
+.section-container h2 span {
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #fff;
@@ -81,7 +84,6 @@ section h2 span {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
 }
 
 .item {
@@ -92,7 +94,7 @@ section h2 span {
   background-color: lightgray;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-bottom: 1rem;
+  margin-top: 10px;
 }
 
 .item iframe {
@@ -119,7 +121,8 @@ section h2 span {
   line-height: 1.4;
   text-align: justify;
 }
-#btn {
+
+.btn {
   padding: 8px 13px;
   font-size: 15px;
   letter-spacing: 0.6px;
@@ -130,14 +133,136 @@ section h2 span {
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
+  text-decoration: none;
+  text-align: center;
 }
 
-#btn:hover {
+.btn:hover {
   background-color: #0b6161;
 }
 /* Section styling end */
 
-/* responsive code for navbar */
+/* Tourist Places start */
+.places {
+  display: flex;
+  justify-content: space-between;
+}
+
+.place {
+  flex-basis: 32.99%;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.place img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
+.img__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.img__overlay:hover {
+  opacity: 1;
+}
+
+.img__overlay > * {
+  transform: translateY(20px);
+  transition: transform 0.3s;
+}
+
+.img__overlay:hover > * {
+  transform: translateY(0);
+}
+
+.img__overlay p {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  text-align: center;
+}
+/* Tourist Places end */
+
+/* Industries styling start */
+.industry-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.indust-item {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 49%;
+  margin-bottom: 10px;
+}
+
+.indust-item img {
+  width: 50%;
+  height: auto;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.indust-item .detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ccc;
+  padding: 15px;
+  line-height: 1.4;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.detail span {
+  font-size: 20px;
+  color: #008b8b;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.detail p {
+  font-size: 14px;
+  padding: 12px 0;
+}
+/* Industries styling end */
+
+footer {
+  text-align: center;
+  padding: 15px 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+/* responsive code */
+@media screen and (max-width: 900px) {
+  .places,
+  .section-items {
+    flex-direction: column;
+  }
+
+  .industry-container {
+    flex-direction: column;
+  }
+}
+
 @media screen and (max-width: 700px) {
   nav {
     flex-direction: column;
@@ -145,5 +270,25 @@ section h2 span {
 
   #align-item-right {
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section-container h2 span {
+    padding: 7px 18px;
+    font-size: 16px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .img__overlay p {
+    font-size: 12px;
+  }
+
+  footer {
+    font-size: 12px;
   }
 }
