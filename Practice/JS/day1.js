@@ -64,18 +64,44 @@ let cardType;
 
 // Loops practice
 
-let num = prompt("Enter a number for table: ");
+// let num = prompt("Enter a number for table: ");
 
-for (let i = 1; i <= 10; i++) {
-  console.log(num + "*" + i + "=" + num * i);
-}
+// for (let i = 1; i <= 10; i++) {
+//   console.log(num + "*" + i + "=" + num * i);
+// }
 
 // show even & odd number of given input
 
-let enteredNum = prompt("Enter a number: ");
-for (let i = 0; i < enteredNum; i++) {
-  // if (i % 2 != 0)
-  if (i % 2 == 0) {
-    console.log(i);
-  }
+// let enteredNum = prompt("Enter a number: ");
+// for (let i = 0; i < enteredNum; i++) {
+//   // if (i % 2 != 0)
+//   if (i % 2 == 0) {
+//     console.log(i);
+//   }
+// }
+
+// For....in loop
+let cars = ["Honda", "Aodi", "Suzuki", "Civic"];
+
+// with....arrays
+for (let key in cars) {
+  console.log(key, cars[key]);
+}
+
+// with....Objects
+let person = {
+  fullName: "Manzoor",
+  age: 43,
+  job: "Manager",
+};
+
+for (let key in person) {
+  console.log(key, person[key]);
+}
+
+// For....of loop
+let names = ["Ahmad", "Mateen", "Umair", "Umer", "Saqlain"];
+
+for (let index of names) {
+  console.log(index);
 }
