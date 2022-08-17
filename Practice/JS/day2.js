@@ -85,6 +85,21 @@ console.log(str_method.substr(0, 10));
 // 7. replace
 console.log(str_method.replace("Hello", "Hey"));
 
+// 8. search
+console.log(str_method.search("Mateen"));
+
+// 9. match
+console.log(str_method.match(/e/g)); // it return an array with all matches in the string
+
+// 10. include
+console.log(str_method.includes("name", 10)); // 2nd parameter define the starting position of searching string
+
+// 11. startsWith
+console.log(str_method.startsWith("Hello"));
+
+// 12. endsWith
+console.log(str_method.endsWith("Nawaz."));
+
 // Object practice
 const person = {
   fullName: "Mateen Nawaz",
@@ -96,6 +111,56 @@ const person = {
 
 console.log(person);
 
-alert(
-  `${person.fullName} is a ${person.position} of ${person.degree}. He is ${person.age} years old, and live in ${person.liveIn}`
-);
+// alert(
+//   `${person.fullName} is a ${person.position} of ${person.degree}. He is ${person.age} years old, and live in ${person.liveIn}`
+// );
+
+// Number
+// let number = 4;
+// let result = "";
+
+// while (number != Infinity) {
+//   number = number * number;
+//   result = result + number;
+//   console.log(result + "\n");
+// }
+
+// 1. toString
+let num = 133;
+console.log(num.toString());
+console.log(typeof num.toString());
+
+// 2. toExponential
+let expNum = 13.12;
+console.log(expNum.toExponential());
+
+// 3. toFixed
+console.log(expNum.toFixed(2)); // here 2 define the number after point
+
+// 4. toPrecision
+console.log(expNum.toPrecision(2));
+
+// 5. valueOf
+console.log(expNum.valueOf());
+
+// 6. Number
+console.log(Number(expNum)); // covert variable to number
+
+// 7. parseInt
+console.log(parseInt(expNum));
+
+// 8. parseFloat
+let floatNum = 65.31;
+console.log(parseFloat(floatNum));
+
+// 9. MAX_VALUE
+console.log(Number.MAX_VALUE);
+
+// 10. MIN_VALUE
+console.log(Number.MIN_VALUE);
+
+// 11. POSITIVE_INFINITY
+console.log(Number.POSITIVE_INFINITY);
+
+// 12. NEGATIVE_INFINITY
+console.log(Number.NEGATIVE_INFINITY);
