@@ -320,3 +320,287 @@ vegs.forEach(function (value, key) {
 let num = [123, 121, 434];
 console.log(String(num));
 console.log(typeof String(num[0]));
+
+// 1. String conversion
+// Explicit conversion
+let con1 = 123;
+console.log(String(con1));
+console.log(typeof String(con1)); // returns a string
+
+// Implicit conversion
+console.log(con1 + "");
+console.log(typeof (con1 + " ")); // returns a string
+
+// 2. Boolean conversion
+
+// Explicit conversion
+console.log(Boolean(21)); // returns true
+
+// Implicit conversion
+console.log(!!21); // returns true
+
+// 3. Numerci Conversion
+
+// Explicit conversion
+console.log(Number("32"));
+console.log(typeof Number("32"));
+
+// Implicit Conversion
+console.log(+"12");
+console.log(typeof +"12");
+
+// Some Examples
+console.log(true + false); // true = 1 , false = 0, 1+0 = 1
+console.log(30 / "5"); // 30 = number, "5" = string , number + string = number
+console.log("str" + 21 + 1); // str = string, 21=1= number, string + number = string
+console.log(21 + 1 + "str"); // number + string = number
+console.log([1] > null); // [1] = string  = 1, null = 0 1 > 0
+console.log("true" == true); // "true" = string, true = boolean, string != boolean
+
+// Working with objects
+const course = {
+  lecture: 1,
+  title: "JavaScript",
+  notes: {
+    // nested object
+    introduction: "Welcome to JS course",
+  },
+  enrolled: function () {
+    // method inside course object
+    console.log("Your are successfully enrolled in JS course!");
+  },
+};
+
+console.log(course); // return course object
+console.log(course.notes.introduction); // returns nested object notes introduction property value
+course.enrolled();
+
+// Factory function
+const createObj = () => {
+  return {
+    lecture: 1,
+    title: "JavaScript",
+    notes: {
+      // nested object
+      introduction: "Welcome to JS course",
+    },
+    enrolled: function () {
+      // method inside course object
+      console.log("Your are successfully enrolled in JS course!");
+    },
+  };
+};
+
+console.log(createObj()); // returns the whole object inside the createObj function
+console.log(createObj().notes.introduction); // return nested object introduction prop
+
+// Constructor Function
+function courseConstructor(lec, title) {
+  this.lec = lec; // here this point the function args
+  this.title = title;
+  this.enrolled = function () {
+    return "Hello welcome to the constructor world!";
+  };
+}
+
+const obj1 = new courseConstructor(1, "JavaScript");
+console.log(obj1);
+
+console.log(obj1.enrolled());
+
+// create key outside the constructor
+obj1.section = 2;
+console.log(obj1);
+
+// Delete key outside the constructor using delete keyword
+delete obj1.section;
+console.log(obj1);
+
+// Native code BTS for every declared function
+const course_1 = Function(
+  "lec",
+  "title",
+  `
+this.lec = lec; 
+  this.title = title;
+  this.enrolled = function () {
+    return "Hello welcome to the Native Constructor world!";
+  };
+`
+);
+
+const obj2 = new course_1(2, "OOP");
+console.log(obj2);
+
+console.log(obj2.enrolled());
+
+// Premitive Datetype
+let pre1 = 12;
+// Pass by value
+let pre2 = pre1;
+
+// change pre1 value
+pre1 = 30;
+
+console.log(pre1);
+console.log(pre2);
+
+// Reference Datatype
+
+const ref1 = {
+  num: 43,
+};
+
+// Pass by memory location reference
+const ref2 = ref1;
+// change ref1 property value
+ref1.num = 11;
+
+console.log(ref1);
+console.log(ref2);
+
+// Spread Operator --> it copies all data from array or Object
+const sprdObj = {
+  fullName: "John Miller",
+  age: 21,
+};
+
+console.log(sprdObj);
+const copyObj = { ...sprdObj };
+console.log(copyObj);
+console.log(copyObj.fullName);
+
+// Alternative of spread op in JS Engine
+const altObj = Object.assign({}, sprdObj);
+console.log(altObj);
+
+// Spread Operator for arrays
+const spArray = ["Mike", 32, "Student"];
+const copyArray = [...spArray];
+console.log(spArray);
+console.log(copyArray);
+
+// For....in loop with objects
+for (let key in sprdObj) {
+  console.log("For...in loop");
+  console.log(key, sprdObj[key]);
+}
+
+// for....of loop
+for (let key of Object.keys(sprdObj)) {
+  console.log("For...of loop");
+  console.log(key, sprdObj[key]);
+}
+
+// Object Exercise --> Using Constructor
+function Exercise1(itemName, itemPrice, itemDiscount, itemCode) {
+  this.itemName = itemName;
+  this.itemPrice = itemPrice;
+  this.itemCode = itemCode;
+  this.itemDiscount = itemDiscount;
+  this.calcDiscount = function () {
+    return (itemPrice * itemDiscount) / 100;
+  };
+}
+
+const productObj = new Exercise1("Fair & Lovely", 18, 10, "M21");
+console.log(productObj);
+
+console.log(productObj.calcDiscount());
+
+// Obj Exercise --> using Factory function
+const prodFact = (name, price, discount, code) => {
+  return {
+    itemName: name,
+    itemPrice: price,
+    itemDiscount: discount,
+    itemCode: code,
+  };
+};
+
+console.log(
+  prodFact({
+    itemName: "Fair & Lovely",
+    itemPrice: 18,
+    itemDiscount: 10,
+    itemCode: "M21",
+  })
+);
+
+// Simple object
+const product = {
+  itemName: "Fair & Lovely",
+  itemPrice: 18,
+  itemDiscount: 10,
+  itemCode: "M21",
+};
+
+console.log(product);
+
+// Declaring a class
+class Product {
+  constructor(itemName, itemPrice, itemDiscount, itemCode) {
+    this.itemName = itemName;
+    this.itemPrice = itemPrice;
+    this.itemDiscount = itemDiscount;
+    this.itemCode = itemCode;
+  }
+  get getItemPrice() {
+    return this.itemPrice;
+  }
+
+  set setItemPrice(value) {
+    this.itemPrice = value;
+  }
+
+  discountCalc() {
+    return (this.itemPrice * this.itemDiscount) / 100;
+  }
+}
+
+const classObj = new Product("Perfume", 599, 14, "PR91");
+console.log(classObj);
+console.log(typeof classObj);
+
+console.log(classObj.getItemPrice);
+console.log(classObj.discountCalc());
+// console.log(classObj.setItemPrice(91000));
+
+// Class Declaring another way
+const Product_1 = class {
+  constructor(itemName, itemPrice, itemDiscount, itemCode) {
+    this.itemName = itemName;
+    this.itemPrice = itemPrice;
+    this.itemDiscount = itemDiscount;
+    this.itemCode = itemCode;
+  }
+};
+const classObj2 = new Product("Bike", 89000, 21, "Bk12");
+console.log(classObj2);
+
+// Working with sub-classes
+class Parent {
+  constructor(fullName) {
+    this.fullName = fullName;
+  }
+  getName() {
+    return this.fullName.concat(" is a Parent!");
+  }
+}
+
+const parent = new Parent("Miller");
+console.log(parent.getName());
+
+class Child extends Parent {
+  super(fullName) {
+    // super is constructor of parent class
+    this.fullName = fullName;
+  }
+
+  getName() {
+    return this.fullName + " is a child!";
+  }
+}
+
+const child = new Child("John Miller");
+console.log(child.getName());
