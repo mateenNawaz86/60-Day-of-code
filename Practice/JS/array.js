@@ -60,7 +60,7 @@ console.log(newArray.splice(1, 0, "Palak")); // 1 show index position , 0 show h
 
 // slice() --> return a new array start from specific index
 console.log(newArray.slice(1)); // 1 show where to start an array item
-console.log(names.slice(0, 4)); // 0 show start position 4 shows excepted this item
+console.log(names.slice(0, 2)); // 0 show start position 4 shows excepted this item
 
 // sort() --> this method sort an array alphabeticaly
 // console.log(newArray.sort());
@@ -604,3 +604,99 @@ class Child extends Parent {
 
 const child = new Child("John Miller");
 console.log(child.getName());
+
+// Create a Bike class
+class Bike_1 {
+  constructor(bikeCompany, bikeModel, bikePrice) {
+    this.bikeCompany = bikeCompany;
+    this.bikeModel = bikeModel;
+    this.bikePrice = bikePrice;
+  }
+
+  getBikeCompany() {
+    return this.bikeCompany.concat(" is a bike company name!");
+  }
+}
+
+const bikeObj = new Bike_1("Honda", "CD70", 98000);
+console.log(bikeObj.getBikeCompany());
+// Excepted Output = Honda is a bike company name!
+
+// Create a Model class
+class Model_1 extends Bike_1 {
+  super(bikeCompany) {
+    this.bikeCompany = bikeCompany;
+  }
+
+  getBikeCompany() {
+    return `${this.bikeCompany} is inherited from Bike class!`;
+  }
+}
+
+const modelObj = new Model_1("Honda");
+console.log(modelObj);
+
+console.log(modelObj.getBikeCompany());
+// Excepted output --> Honda is inherited from Bike class!
+
+// Bike class
+class Bike {
+  static bikes() {
+    return "I have 4 bikes";
+  }
+}
+
+// Model class
+class Model extends Bike {
+  static logDescription() {
+    return `${super.bikes()} which are all so expensive.`;
+  }
+}
+
+const result = Model.logDescription();
+console.log(result);
+// Excepted output --> I have 4 bikes which are all so expensive.
+
+// store objects in array
+const objArray = [
+  {
+    fullName: "Mark Miller",
+    age: 21,
+  },
+  {
+    fullName: "John Smith",
+    age: 27,
+  },
+  {
+    fullName: "Marry",
+    age: 18,
+  },
+];
+
+console.log(objArray.find((element) => element.fullName === "Marry"));
+
+// Concat two arrays
+const conArr1 = [0, 1, 2, 3, 4, 5];
+const conArr2 = [6, 7, 8, 9];
+const resultArray = conArr1.concat(conArr2);
+const spreadConcat = [...conArr1, ...conArr2];
+console.log(resultArray);
+console.log(spreadConcat);
+
+// Slice() --> it except two parameter start & end, if we enter only 1 parameter then it remove all the indexs from this index before
+
+console.log(resultArray.slice(3, 7));
+
+// print array value using loop
+for (let i = 0; i < conArr1.length; i++) {
+  console.log(conArr1[i]);
+}
+
+// for of loop
+for (let index of conArr2) {
+  console.log(index);
+}
+
+conArr1.forEach((value) => {
+  console.log(value);
+});
