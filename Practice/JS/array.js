@@ -700,3 +700,115 @@ for (let index of conArr2) {
 conArr1.forEach((value) => {
   console.log(value);
 });
+
+// join() --> this method convert array element into one string
+const joinArray = ["M", "a", "t", "e", "e", "n"];
+console.log(joinArray.join(""));
+const joinRes = joinArray.join("");
+
+// splice() --> it gives alternative result of join()
+console.log(joinArray.splice(""));
+
+// Working with map() method
+const random_data = [
+  {
+    names: "Mateen",
+    height: "1.65",
+    mass: "65",
+    eyeColor: "Gray",
+    gender: "Male",
+  },
+  {
+    names: "Wasim",
+    height: "1.32",
+    mass: "43",
+    eyeColor: "black",
+    gender: "Female",
+  },
+  {
+    names: "Aamir",
+    height: "1.12",
+    mass: "98",
+    eyeColor: "light-brown",
+    gender: "Male",
+  },
+  {
+    names: "Aftab",
+    height: "1.6",
+    mass: "34",
+    eyeColor: "black",
+    gender: "Female",
+  },
+];
+
+// Get an array of all the names
+const allNames = random_data.map((item) => item.names);
+console.log(allNames);
+
+// Get an array of objects with just name and height properties
+const heightNames = random_data.map((item) => {
+  return { name: item.names, height: item.height };
+});
+
+console.log(heightNames);
+
+// Get the total height of all the array element
+const totalHeight = random_data.reduce((prevHeight, currentItem) => {
+  return prevHeight + Number(currentItem.height);
+}, 0);
+
+console.log(totalHeight);
+
+// Get data with mass grater than 100
+const mass = random_data.filter((item) => Number(item.mass) > 50);
+console.log(mass);
+
+// Get all Male characters
+const allMales = random_data.filter((item) => item.gender === "Male");
+console.log(allMales);
+
+// Sort by Gender
+const sortedGender = random_data.sort((item1, item2) => {
+  if (item1.gender < item2.gender) {
+    return -1;
+  }
+  if (item1.gender > item2.gender) {
+    return 1;
+  }
+
+  return 0;
+});
+console.log(sortedGender);
+
+// Sort by Names
+
+const sortedNames = random_data.sort((item1, item2) => {
+  if (item1.names < item2.names) {
+    return -1;
+  }
+  if (item1.names > item2.names) {
+    return 1;
+  }
+
+  return 0;
+});
+
+console.log(sortedNames);
+
+// Does every character have mass more than 40?
+const haveMass = random_data.every((item) => Number(item.mass) > 40);
+console.log(haveMass);
+
+// Does every character have blue eyeColor?
+
+const haveBlueEyeColor = random_data.every((item) => item.eyeColor === "Blue");
+console.log(haveBlueEyeColor);
+
+// Is there at least one Male character?
+console.log(random_data.some((item) => item.gender));
+
+// Is there at least one character taller than 1.6M?
+
+const haveTallerThan1M = random_data.some((item) => item.heightNames > "1.5");
+
+console.log(haveTallerThan1M);
