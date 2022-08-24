@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation</title>
+  </head>
+  <body>
+    <ul>
+      <li>First Element</li>
+      <li>Second Element</li>
+      <li>Third Element</li>
+    </ul>
+    <script>
+      // return all nodes inside the body element
+      //console.log(document.body.childNodes);
+
+      //   return all child nodes of body but without text nodes
+      //console.log(document.body.children);
+
+      //   return a first-element-children of body
+      //   console.log(document.body.firstElementChild);
+
+      //   return a last-element-children of body
+      //   console.log(document.body.lastElementChild);
+
+      //   return an array of all body nodes
+      //   const arrayOfBody = Array.from(document.body.children);
+      //   console.log(arrayOfBody);
+
+      // Siblings
+      const firstBodyEl = document.body.children[0];
+      console.log(firstBodyEl);
+
+      //   select next Siblings of body
+      const nextChild = firstBodyEl.nextElementSibling;
+      console.log(nextChild);
+
+      //   select first element of ul
+      const firstLiEl = firstBodyEl.children[0];
+      console.log(firstLiEl);
+
+      //   select the next children of ul
+      const nextChildOfUl = firstLiEl.nextElementSibling;
+      console.log(nextChildOfUl);
+    </script>
+  </body>
+</html>

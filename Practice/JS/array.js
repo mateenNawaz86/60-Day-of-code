@@ -1,5 +1,5 @@
 // Array practice
-const arr = ["Mateen", "Nawaz", "Mirani"];
+/*const arr = ["Mateen", "Nawaz", "Mirani"];
 console.log(arr);
 
 // 1. Declare array with new keyword
@@ -18,6 +18,7 @@ console.log(arr[arr.length - 1]);
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
 // 1. add new element to array
 fruits.push("Pine-Apple");
+*/
 
 // 2. add new element to array
 /*fruits[fruits.length] = "Graps";
@@ -28,7 +29,7 @@ for (let i = 0; i < fruits.length; i++) {
 }
 text += "</ul>";
 
-document.getElementById("demo").innerHTML = text; */
+document.getElementById("demo").innerHTML = text; 
 
 // toString --> convert array item into atring
 console.log(fruits.toString());
@@ -52,15 +53,18 @@ const names = ["Aamir", "Wasim", "Mateen", "aftab", "Mirani"];
 const number = [1, 2, 3, 4];
 
 console.log(names.concat(number));
+*/
 
 // splice() --> add new item to an array it return array after deleted items
+/*
 const newArray = ["potato", "Tomato", "Chili"];
 console.log(newArray);
 console.log(newArray.splice(1, 0, "Palak")); // 1 show index position , 0 show how much item should be deleted from an array
+*/
 
 // slice() --> return a new array start from specific index
-console.log(newArray.slice(1)); // 1 show where to start an array item
-console.log(names.slice(0, 2)); // 0 show start position 4 shows excepted this item
+//console.log(newArray.slice(1)); // 1 show where to start an array item
+//console.log(names.slice(0, 2)); // 0 show start position 4 shows excepted this item
 
 // sort() --> this method sort an array alphabeticaly
 // console.log(newArray.sort());
@@ -105,7 +109,7 @@ console.log(highNum(numArray)); */
 console.log(minNum(numArray)); */
 
 // forEach() --> this method calls a function one for each array item
-const forArray = ["Islamabad", "Lahore", "Peshawar", "Karachi", "Layyah"];
+/*const forArray = ["Islamabad", "Lahore", "Peshawar", "Karachi", "Layyah"];
 
 const forFun = (value, index, array) => {
   console.log(value); // print array item
@@ -812,3 +816,194 @@ console.log(random_data.some((item) => item.gender));
 const haveTallerThan1M = random_data.some((item) => item.heightNames > "1.5");
 
 console.log(haveTallerThan1M);
+
+// Default value
+var defName = "Mateen";
+console.log(window.defName); // access through global window object
+
+// Global scope
+const firstFun = () => {
+  var firstName = "Mateen"; // global scope
+  console.log(firstName);
+  const secoundFun = () => {
+    var firstName = "Nawaz"; // local/function scope
+    console.log(firstName);
+  };
+  secoundFun();
+};
+
+firstFun();
+*/
+
+// working with var keyword --> variable decalre with var keyword value update when ever we change the value
+/*var x = 1;
+{
+  var x = 10;
+  console.log(x);
+}
+
+console.log(x);
+
+// Lexical scope
+function parent_1() {
+  var fullName = "M-Nawaz";
+
+  function child() {
+    console.log(fullName);
+    function innerChild() {
+      console.log(fullName);
+    }
+    innerChild();
+  }
+  child();
+}
+
+parent_1();
+*/
+// Hoisting
+/*var foo = "Foo";
+var baz = "baz";
+
+function sayHello() {
+  console.log(foo);
+  baz = "baz1"; // baz value update to 'baz1'
+}
+
+sayHello();
+console.log(baz);*/
+
+// variables declared under the function is run even before initialized
+
+/*sayHello(); // function code run due to different E-context
+
+console.log(baz); // variable undefined before initialization
+var foo = "Foo";
+var baz = "baz";
+
+function sayHello() {
+  var funVar = "Mateen";
+  console.log(funVar);
+}
+*/
+// variable declared with let keyword
+/*let foo_1 = "foo-1";
+let max = "foo";
+
+function sayHello_1() {
+  console.log(foo_1);
+  let max = "Mateen Nawaz"; // variable even with the same name have different scope due to let keyword
+  console.log(max);
+}
+
+sayHello_1();
+console.log(max);*/
+
+// Lexical declaration
+/*sayHello_1(); // throughs an error bcoz variable declared with let keyword is not accessible before initialization
+console.log(max_1);
+let foo_11 = "foo-1";
+let max_1 = "foo";
+
+function sayHello_1() {
+  console.log(foo_11);
+  let max = "Mateen Nawaz";
+  console.log(max);
+}*/
+
+// function working well
+/*var var_1 = "variable_1";
+var bazz = "bazz-1";
+
+var varFunction = function () {
+  console.log(var_1);
+  bazz = "baz1"; // bazz value update
+};
+
+varFunction();
+console.log(bazz);*/
+
+/*varFunction(); // throughs an error bcoz if we stored function in variable is act like a variable but error is not a function!
+console.log(bazz); // it return undefined
+var var_1 = "variable_1";
+var bazz = "bazz-1";
+
+var varFunction = function () {
+  console.log(var_1);
+  bazz = "baz1"; // bazz value update
+};
+
+console.log(text); // return an error can't accessible lexical declaration before initialization
+let text = "foo";
+*/
+
+// Working with this keyword
+/*const counter = {
+  count: 0,
+  increment: function () {
+    return counter.count++; // working just for counter object
+  },
+};
+
+console.log(counter);
+console.log(counter.increment());
+console.log(counter.increment());
+console.log(counter.increment());
+
+// create object with Factory function
+
+let counter_1 = new createCounter();
+let counter_2 = new createCounter();
+function createCounter() {
+  return {
+    count: 0,
+    increment: function () {
+      //counter_1.count++; // target the specific object
+      this.count++; //target the given objects
+      console.log(this); // target the given specific objects
+    },
+  };
+}
+
+counter_1.increment();
+counter_1.increment();
+counter_1.increment();
+counter_2.increment();
+counter_2.increment();
+console.log(counter_1);
+console.log(counter_2);
+*/
+// create object with constructor function
+/*function Car(name) {
+  this.name = name;
+  this.start = function () {
+    console.log(this.name.concat(" started!"));
+    console.log(this); // target the given object
+  };
+}
+
+const civic = new Car("Honda Civic");
+console.log(civic);
+civic.start();
+
+// without new keyword this target the window object
+const swift = Car("swift");
+//  console.log(swift.start()); // error undefined bcoz find no swift method inside the window object
+console.log(name);
+*/
+
+// increment count with simple function
+/*var count = 0;
+function counterUpdate() {
+  this.count++; // target the window object where it find the increment function
+
+  console.log(this); // target the window object
+}
+
+counterUpdate();
+counterUpdate();
+counterUpdate();
+counterUpdate();
+console.log(count);
+
+console.log(this); // target the window object
+*/
