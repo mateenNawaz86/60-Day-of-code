@@ -5,13 +5,98 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM Manipulation</title>
+    <style>
+      table,
+      tr,
+      td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 10px 15px;
+      }
+
+      #table-task {
+        margin-top: 2rem;
+      }
+      button {
+        margin-bottom: 2rem;
+      }
+    </style>
   </head>
-  <body>
-    <ul>
+  <body id="body">
+    <ul id="ul">
       <li>First Element</li>
       <li>Second Element</li>
       <li>Third Element</li>
     </ul>
+
+    <button id="btn" onclick="alert('Button was clicked!')">Click Me</button>
+
+    <!-- Table -->
+    <table id="table">
+      <tr>
+        <td class="li-element">One</td>
+        <td>Two</td>
+      </tr>
+      <tr>
+        <td class="li-element">Three</td>
+        <td id="third-item">Four</td>
+      </tr>
+      <tr>
+        <td class="li-element">Five</td>
+        <td>Six</td>
+      </tr>
+    </table>
+
+    <!-- Task of Table start -->
+    <table id="table-task">
+      <tr>
+        <td>1:1</td>
+        <td>1:2</td>
+        <td>1:3</td>
+        <td>1:4</td>
+        <td>1:5</td>
+      </tr>
+      <tr>
+        <td>2:1</td>
+        <td>2:2</td>
+        <td>2:3</td>
+        <td>2:4</td>
+        <td>2:5</td>
+      </tr>
+      <tr>
+        <td>3:1</td>
+        <td>3:2</td>
+        <td>3:3</td>
+        <td>3:4</td>
+        <td>3:5</td>
+      </tr>
+      <tr>
+        <td>4:1</td>
+        <td>4:2</td>
+        <td>4:3</td>
+        <td>4:4</td>
+        <td>4:5</td>
+      </tr>
+      <tr>
+        <td>5:1</td>
+        <td>5:2</td>
+        <td>5:3</td>
+        <td>5:4</td>
+        <td>5:5</td>
+      </tr>
+    </table>
+    <!-- Task of Table end -->
+
+    <!-- Create Link list start -->
+    <div id="links">
+      <a href="https://www.fiverr.com/norah99?up_rollout=true">Fiverr</a>
+      <a href="./day1.html">Day 1</a>
+      <a href="/challenge1.html">Challenge</a>
+      <a href="https://www.upwork.com/">Upwork</a>
+      <a href="https://www.freelancer.com/">Freelancer</a>
+      <a href="https://internal.com/">Internal</a>
+    </div>
+    <!-- Create Link list end -->
     <script>
       // return all nodes inside the body element
       //console.log(document.body.childNodes);
@@ -30,7 +115,7 @@
       //   console.log(arrayOfBody);
 
       // Siblings
-      const firstBodyEl = document.body.children[0];
+      /*const firstBodyEl = document.body.children[0];
       console.log(firstBodyEl);
 
       //   select next Siblings of body
@@ -44,6 +129,144 @@
       //   select the next children of ul
       const nextChildOfUl = firstLiEl.nextElementSibling;
       console.log(nextChildOfUl);
+
+      console.log(nextChildOfUl.previousElementSibling.textContent); */
+
+      // Working with table
+      /*let tableTag = document.body.children[1];
+      console.log(tableTag);
+
+      // Select the all rows
+      console.log(tableTag.tBodies[0].rows);
+
+      // Select the second -row
+      console.log(tableTag.tBodies[0].rows[1]);
+
+      // Select the second-row second element
+      console.log(tableTag.tBodies[0].rows[1].cells[1]);
+
+      // Select the second -row second element textContent
+      console.log(tableTag.tBodies[0].rows[1].cells[1].textContent); */
+
+      // Table DOM Manipulation
+      const secondTable = document.body.children[2];
+      // console.log(secondTable);
+
+      // secondTable.tBodies[0].rows[0].style = "background-color: orange";
+      // secondTable.tBodies[0].rows[1].style = "background-color: purple";
+      // secondTable.tBodies[0].rows[2].style = "background-color: pink";
+      // secondTable.tBodies[0].rows[3].style = "background-color: lightcyan";
+      // secondTable.tBodies[0].rows[4].style = "background-color: dodgerblue";
+
+      // select using id
+      // const firstTable = document.getElementById("table");
+      // firstTable.style.color = "dodgerblue";
+
+      // select element using querySelector
+      // const table = document.querySelector(".li-element"); // select only 1st one
+      // table.style.color = "orange";
+
+      // select last element
+      // const lastChild = document.querySelector("ul > li:last-child");
+      // lastChild.style.color = "orange";
+
+      // document.getElementById("third-item").style.color = "blue";
+
+      // // select select user-defined attribute
+      // let element = document.querySelector("ul > li");
+      // console.log(element.setAttribute("data", "Pending"));
+      // console.log(element.getAttribute("data"));
+      // console.log(element.hasAttribute("data"));
+      // console.log(element.attributes)
+
+      // Add new links to the DOM Manipulation
+      const parentElement = document.getElementById("links");
+      const newLink = document.createElement("a");
+      newLink.href = "#";
+      const newLinkText = document.createTextNode("Mateen");
+      newLink.appendChild(newLinkText);
+
+      // add new links at the biggning
+      parentElement.prepend(newLink);
+
+      // add new links at the end
+      parentElement.appendChild(newLink);
+
+      // Remove existing element from the DOM Manipulation
+      parentElement.removeChild(newLink);
+
+      // Add header dynamicaly
+      const body_1 = document.getElementById("body");
+
+      const header = document.createElement("header");
+
+      const headerTxt = document.createTextNode("Header");
+
+      header.appendChild(headerTxt);
+      body_1.prepend(header);
+      header.style.backgroundColor = "orange";
+      header.style.color = "#fff";
+      header.style.fontSize = "1.3rem";
+      header.style.letterSpacing = "2px";
+      header.style.padding = " 20px 30px";
+
+      // Add footer dynamicaly
+      const footer = document.createElement("footer");
+      const footerTxt = document.createTextNode("Footer");
+      footer.appendChild(footerTxt);
+      body_1.appendChild(footer);
+      footer.style.padding = " 20px 30px";
+      footer.style.backgroundColor = "dodgerblue";
+
+      // Create ul
+      // const ulELement = document.createElement("ul");
+      // document.body.appendChild(ulELement);
+      // const newLiElement = document.createElement("li");
+
+      // while (true) {
+      //   const inputData = prompt("Enter list data!");
+      //   if (!inputData) {
+      //     break;
+      //   } else {
+      //     newLiElement.textContent = inputData;
+      //     ulELement.appendChild(newLiElement);
+      //   }
+      // }
+
+      // Remove first table from the DOM Manipulation
+      const table = document.getElementById("table");
+
+      // clear function
+      const clearTable = (element) => {
+        while (element.childNodes.length > 0) {
+          element.childNodes[0].remove();
+        }
+      };
+
+      clearTable(table);
+
+      // Events
+      const btn = document.getElementById("btn");
+
+      const callMe = () => {
+        alert("Thanks for clicking me from Call Me function");
+      };
+
+      // Event replace it's functionality with callMe function
+      btn.onclick = callMe;
+
+      btn.onclick = function (event) {
+        alert("User click the button from Anynomus function.");
+        console.log(event.type);
+        console.log(event.currentTarget);
+        console.log(event.clientX);
+        console.log(event.clientY);
+      };
+
+      // performed event with addEventListener
+      btn.addEventListener("click", function () {
+        alert("User click the button from Anynomus function."); // this have highest priority
+      });
     </script>
   </body>
 </html>
