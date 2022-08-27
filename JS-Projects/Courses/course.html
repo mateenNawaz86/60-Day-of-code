@@ -63,22 +63,126 @@
             placeholder="Add new course"
             aria-label="Recipient's username"
             aria-describedby="button-addon2"
+            id="input"
           />
-          <div class="input-group-append">
-            <button
-              class="btn btn-outline-success"
-              type="button"
-              id="button-addon2"
-            >
-              Add
-            </button>
-          </div>
+
+          <button class="btn btn-outline-success" type="button" id="add_btn">
+            Add
+          </button>
         </div>
 
-        <ul class="list-group">
-          <li class="list-group-item">Error 404</li>
+        <ul class="list-group" id="item_list">
+          <li class="list-group-item d-flex justify-content-between">
+            <h4 class="flex-grow-1">Error 404</h4>
+            <button class="btn btn-warning mx-2" onclick="editElement(this)">
+              Edit
+            </button>
+            <button
+              id="remove_btn"
+              class="btn btn-danger"
+              onclick="removeElement(this)"
+            >
+              Remove
+            </button>
+          </li>
         </ul>
       </div>
     </main>
+
+    <script>
+      // select the add Button
+      const addBtn = document.getElementById("add_btn");
+      // select the item_list
+      const itemList = document.getElementById("item_list");
+
+      // select the input
+      const input = document.getElementById("input");
+
+      // add new item to the list
+      addBtn.addEventListener("click", addNewItem);
+
+      // function for adding new-item
+      function addNewItem(event) {
+        if (
+          itemList.children[0].className == "emptyMsg" &&
+          input.value.trim().length >= 3
+        ) {
+          itemList.children[0].remove();
+        }
+        // select the button through currentTarget
+        let currentBtn = event.currentTarget;
+
+        // select inputData using sibling selector
+        let inpData = currentBtn.previousElementSibling;
+
+        let inputVal = inpData.value;
+
+        // create new <li> element
+        let newLiElement = document.createElement("li");
+
+        // assign bootstrap classes to newLiElement
+        // newLiElement.classList.add("list-group-item");
+        newLiElement.className =
+          "list-group-item d-flex justify-content-between";
+        newLiElement.innerHTML = `<h4 class="flex-grow-1">${inputVal}</h4>
+            <button class="btn btn-warning mx-2" onclick="editElement(this)">Edit</button>
+            <button class="btn btn-danger" onclick="removeElement(this)">Remove</button>`;
+
+        // append newLiElement to the DOM
+        if (inputVal.trim().length >= 3) {
+          itemList.appendChild(newLiElement);
+        }
+      }
+
+      // remove existing element
+      function removeElement(currentElement) {
+        currentElement.parentElement.remove();
+
+        // show text if no item exist
+        if (itemList.children.length <= 0) {
+          let emptyMsg = document.createElement("h4");
+          // emptyMsg.className = "d-flex justify-content-center";
+          emptyMsg.classList.add("emptyMsg");
+          // emptyMsg.className = "d-flex justify-content-center";
+          emptyMsg.textContent = "No item found";
+          itemList.appendChild(emptyMsg);
+        } else {
+          return 0;
+        }
+      }
+
+      // Edit the existing element
+      function editElement(currentElement) {
+        console.log(currentElement);
+
+        // select the previousElementSibling
+        let currCourseName = currentElement.previousElementSibling.textContent;
+
+        if (currentElement.textContent == "Done") {
+          currentElement.textContent = "Edit";
+          let updateCourseName = currentElement.previousElementSibling.value;
+          let curHeading = document.createElement("h4");
+          curHeading.className = "flex-grow-1";
+          curHeading.textContent = updateCourseName;
+
+          currentElement.parentElement.replaceChild(
+            curHeading,
+            currentElement.previousElementSibling
+          );
+        } else {
+          // create new input element
+          currentElement.textContent = "Done";
+          let currInput = document.createElement("input");
+          currInput.type = "text";
+          currInput.className = "form-control";
+          currInput.value = currCourseName;
+
+          currentElement.parentElement.replaceChild(
+            currInput,
+            currentElement.previousElementSibling
+          );
+        }
+      }
+    </script>
   </body>
 </html>
