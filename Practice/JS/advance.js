@@ -48,7 +48,7 @@ const fullName = (firstName, lastName) => {
   return ` Hello guys my name is ${firstName} ${lastName}`;
 };
 
-document.write(fullName(firstName, lastName));
+// document.write(fullName(firstName, lastName));
 
 // Rest Operator
 function sum() {
@@ -58,7 +58,7 @@ function sum() {
     result += arguments[i];
   }
 
-  document.write(`<br> ${result}`);
+  // document.write(`<br> ${result}`);
 }
 
 sum(12, 21, 32, 1, 2);
@@ -272,10 +272,10 @@ class Manager {
     let phoneAllownce = 1200;
     let totalSalary = this.mangSalary + travelAllownce + phoneAllownce;
 
-    document.write(`<h3>Manager Class</h3> 
-    Manager Name is: ${this.mangName} <br>
-    Manager Status is: ${this.mangStatus} <br>
-    Manager Salary is: ${totalSalary}`);
+    //   document.write(`<h3>Manager Class</h3>
+    //   Manager Name is: ${this.mangName} <br>
+    //   Manager Status is: ${this.mangStatus} <br>
+    //   Manager Salary is: ${totalSalary}`);
   }
 }
 
@@ -285,10 +285,10 @@ class Manager {
 // Derived class
 class Employee extends Manager {
   info() {
-    document.write(`<h3>Manager Class</h3> 
-    Manager Name is: ${this.mangName} <br>
-    Manager Status is: ${this.mangStatus} <br>
-    Manager Salary is: ${this.mangSalary}`);
+    // document.write(`<h3>Manager Class</h3>
+    // Manager Name is: ${this.mangName} <br>
+    // Manager Status is: ${this.mangStatus} <br>
+    // Manager Salary is: ${this.mangSalary}`);
   }
 }
 
@@ -297,5 +297,135 @@ const mangerObj = new Manager("Mateen", "Hr Manager", 76000);
 mangerObj.info();
 
 // Employee info()
-const empObj = new Employee("Mateen", "Hr Manager", 76000);
+const empObj = new Employee("Wasim", "Senior Developer", 76000);
 empObj.info();
+
+// Promises --> simple promise
+const prom_1 = new Promise((resolve, reject) => {
+  if (true) {
+    resolve("Successfully run!");
+  } else {
+    reject("Rejected due to some issues!");
+  }
+});
+
+console.log(prom_1);
+
+// fully functional promise
+const prom_2 = new Promise((res, rej) => {
+  if (true) {
+    res("Successfully launched!");
+  } else {
+    rej("Rejected due to some issues!");
+  }
+});
+
+prom_2
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+// Perform Multiplication using promise
+const prom_3 = (a, b) => {
+  return new Promise((res, rej) => {
+    let result = a * b;
+    setTimeout(() => {
+      if (result % 2 == 0) {
+        res(`Your answer is even number : ${result}`);
+      } else {
+        rej("Your answer is odd number!");
+      }
+    }, 2000);
+  });
+};
+
+// prom_3(5, 1)
+//   .then((result) => {
+//     console.log(result);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+// Fetching jason data with the help of jQuery
+const prom_4 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    $.get("https://jsonplaceholder.typicode.com/photos", (data) => {
+      // console.log(data);
+    }).fail((error) => {
+      reject(error);
+    });
+  }, 2000);
+});
+
+// prom_4
+//   .then((result) => {
+//     console.log(result);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+// Working with Promise.all()
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("First Promise successfully launched!");
+    resolve(12);
+  }, 1000);
+});
+
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("Second Promise successfully launched!");
+    resolve(42);
+  }, 2000);
+});
+
+const p3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    console.log("Third Promise successfully launched!");
+    resolve(11);
+  }, 3000);
+});
+
+let total = 1;
+Promise.all([p1, p2, p3])
+  .then((result) => {
+    for (let i in result) {
+      total *= result[i];
+    }
+    console.log(result);
+    console.log(`Total value is: ${total}`);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+// AJAX
+let txt = document.getElementById("demo");
+
+function loadData() {
+  // server request object
+  let xhttp = new XMLHttpRequest();
+
+  // here check the readyState
+  xhttp.onreadystatechange = () => {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      // success
+      console.log(xhttp.responseText);
+      // txt.innerHTML = xhttp.responseText;
+    } else if (xhttp.readyState == 4 && xhttp.status == 304) {
+      // error
+      txt.innerHTML = "File NOT Found!";
+    }
+  };
+
+  // open file from server
+  xhttp.open("GET", "file.txt", true);
+
+  // send response to the client
+  xhttp.send(null);
+}
