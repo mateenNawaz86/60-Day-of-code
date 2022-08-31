@@ -424,8 +424,9 @@ function loadData() {
   };
 
   // open file from server
-  xhttp.open("GET", "file.txt", true);
+  xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
 
   // send response to the client
   xhttp.send(null);
 }
+
