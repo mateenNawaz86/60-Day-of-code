@@ -322,7 +322,7 @@ const prom_2 = new Promise((res, rej) => {
 
 prom_2
   .then((result) => {
-    console.log(result);
+    // console.log(result);
   })
   .catch((error) => {
     console.log(error);
@@ -370,39 +370,39 @@ const prom_4 = new Promise((resolve, reject) => {
 //   });
 
 // Working with Promise.all()
-const p1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log("First Promise successfully launched!");
-    resolve(12);
-  }, 1000);
-});
+// const p1 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log("First Promise successfully launched!");
+//     resolve(12);
+//   }, 1000);
+// });
 
-const p2 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log("Second Promise successfully launched!");
-    resolve(42);
-  }, 2000);
-});
+// const p2 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log("Second Promise successfully launched!");
+//     resolve(42);
+//   }, 2000);
+// });
 
-const p3 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    console.log("Third Promise successfully launched!");
-    resolve(11);
-  }, 3000);
-});
+// const p3 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log("Third Promise successfully launched!");
+//     resolve(11);
+//   }, 3000);
+// });
 
-let total = 1;
-Promise.all([p1, p2, p3])
-  .then((result) => {
-    for (let i in result) {
-      total *= result[i];
-    }
-    console.log(result);
-    console.log(`Total value is: ${total}`);
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// let total = 1;
+// Promise.all([p1, p2, p3])
+//   .then((result) => {
+//     for (let i in result) {
+//       total *= result[i];
+//     }
+//     console.log(result);
+//     console.log(`Total value is: ${total}`);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
 
 // AJAX
 let txt = document.getElementById("demo");
@@ -430,3 +430,156 @@ function loadData() {
   xhttp.send(null);
 }
 
+// Symbol Datatype
+let s1 = Symbol("How");
+console.log(s1);
+
+// compare the values
+let s2 = Symbol("How");
+
+console.log(s1 == s2); // expected output = false
+
+// return an error due to conversion of datatype
+// console.log(s1);
+
+// convsert Symbol value into string
+// alert(s1.toString());
+// alert(s1.description);
+
+// use symbol value as a key in object
+let gender = Symbol("gender");
+const symObj = {
+  name: "Graduate",
+  age: 21,
+  [gender]: "Male",
+};
+
+console.log(symObj);
+
+console.log(symObj[gender]); // expected output = Male
+
+// Working with Arrays
+let iterat_array = ["Mateen", 21, "Programmer"];
+
+// print out using loops
+// 1. for loop
+for (let i = 0; i < iterat_array.length; i++) {
+  console.log(iterat_array[i]);
+}
+
+// 2. for....in loop
+console.log("For.....in loop");
+for (let i in iterat_array) {
+  console.log(iterat_array[i]);
+}
+
+// for...of loop
+console.log("for...of loop");
+for (let i of iterat_array) {
+  console.log(i);
+}
+
+// forEach loop
+console.log("forEach....loop");
+iterat_array.forEach((value) => {
+  console.log(value);
+});
+
+// map()...method
+console.log("Map...Method");
+iterat_array.map((item) => [console.log(item)]);
+
+// iterator() --> this function work as a for loop
+let iterVal = iterat_array[Symbol.iterator]();
+
+// return object key value pair and done key for next iteration
+// console.log(iterVal.next());
+// // return specific key value
+// console.log(iterVal.next().value);
+// console.log(iterVal.next());
+
+// using while loop
+console.log("Iterator array");
+for (let i in iterat_array) {
+  console.log(iterVal.next());
+}
+
+// string iterates
+const str_iterat = "Hello, My name is Mateen";
+
+let strIterat = str_iterat[Symbol.iterator]();
+for (let i in str_iterat) {
+  console.log(strIterat.next().value);
+}
+
+// Generator function
+function* generatIt() {
+  // console.log("Generator Function");
+  yield "Generat Iteration No. 1";
+  // yield used for pause the iteration
+  yield "Generat Iteration No. 2";
+  yield "Generat Iteration No. 3";
+}
+
+let gen = generatIt();
+// console.log(gen.next());
+
+for (let i of gen) {
+  console.log(i);
+}
+
+// create generator function with array and sttring together
+function* generatIt2() {
+  yield "Generat Iteration No.1";
+  yield ["Mateen", "Single", 21];
+}
+
+let gen2 = generatIt2();
+console.log(gen2.next());
+for (let [...i] of gen2) {
+  // return the value of yield array
+  console.log(...i);
+}
+
+function* generatIt3() {
+  yield "Generat Iteration No.1";
+  // return array value one by one
+  yield* ["Mateen", "Single", 21];
+}
+
+let gen3 = generatIt3();
+console.log(gen3.next());
+for (let i of gen3) {
+  // return the value of yield array
+  console.log(i);
+}
+
+// Strict Mode
+("use strict");
+a_strict = 20;
+console.log(a_strict);
+
+// Error Handling --> all the code written inside the try block
+let strTry = "Mateen Nawaz";
+try {
+  console.log(strTry);
+  console.log(n);
+} catch (error) {
+  console.log(error);
+}
+
+const table_num = prompt("Enter a number for table: ");
+
+try {
+  for (let i = 1; i <= 10; i++) {
+    console.log(`${table_num} * ${i} = ${table_num * i}`);
+  }
+} catch (error) {
+  console.log(error);
+}
+
+// const clickBtn = document.getElementById("click_btn");
+
+// clickBtn.addEventListener("click", (event) => {
+
+// });

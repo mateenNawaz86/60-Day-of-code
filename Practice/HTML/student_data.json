@@ -1,17 +1,17 @@
 [
   {
-    "name": "Mateen",
-    "status": "Single",
-    "profession": "Programming"
+    "title": "Mateen",
+    "subTitle": "Engineer",
+    "description": "Hello I'm a frontend Programming."
   },
   {
-    "name": "Aamir",
-    "status": "Married",
-    "profession": "Busines"
+    "title": "Amir",
+    "subTitle": "Busines",
+    "description": "Hello I'm a busines man."
   },
   {
-    "name": "Waseem",
-    "status": "Single",
-    "profession": "Programming"
+    "title": "Wasim",
+    "subTitle": "Engineer",
+    "description": "Hello I'm a backend Programming."
   }
 ]

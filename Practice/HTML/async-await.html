@@ -5,14 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Async - await</title>
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      #card {
+        visibility: hidden;
+      }
+    </style>
   </head>
   <body>
     <h2>Async - await</h2>
-    <button class="btn" type="submit" id="btn">Show</button>
-    <script>
+    <div class="container my-5">
+      <h2 class="text-center text-primary">Fetch API async -await</h2>
+      <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Title </label>
+          <input
+            type="text"
+            class="form-control"
+            id="user_title"
+            placeholder="Example input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Subtitle</label>
+          <input
+            type="text"
+            class="form-control"
+            id="user_sub_title"
+            placeholder="Another input"
+          />
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Description</label>
+          <textarea class="form-control" id="user_desc" rows="3"></textarea>
+        </div>
+        <button class="btn" id="btn">Submit</button>
+      </form>
+
+      <!-- Card -->
+      <div class="card my-5" style="width: 18rem" id="card">
+        <div class="card-body">
+          <h5 class="card-title" id="card_title">Card title</h5>
+          <h6 class="card-subtitle mb-2 text-muted" id="sub_title">
+            Card subtitle
+          </h6>
+          <p class="card-text" id="card_desc">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <button class="btn" type="submit" id="btn">Show</button> -->
+    <!-- <script>
       const btn = document.getElementById("btn");
 
       btn.addEventListener("click", async (event) => {
+        event.preventDefault();
         const response = await fetch("student_data.json")
           .then((response) => {
             console.log(response);
@@ -54,6 +111,55 @@
       let functionRes = test();
       console.log("Fourth console");
       console.log(functionRes);
+    </script> -->
+
+    <!-- script start -->
+    <script>
+      const cardUI = document.getElementById("card");
+      const submitBtn = document.getElementById("btn");
+
+      const cardTitle = document.getElementById("card_title");
+      const cardSubTitle = document.getElementById("sub_title");
+      const cardDesc = document.getElementById("card_desc");
+
+      // input values
+      let userTitle = document.getElementById("user_title");
+      let subTitle = document.getElementById("user_sub_title");
+      let userDesc = document.getElementById("user_desc");
+
+      // GET data from input form
+      // btn.addEventListener("click", (event) => {
+      //   event.preventDefault();
+
+      //   cardUI.style.visibility = "visible";
+
+      //   cardTitle.innerHTML = userTitle.value;
+      //   cardSubTitle.innerHTML = subTitle.value;
+      //   cardDesc.innerHTML = userDesc.value;
+
+      //   userTitle.value = "";
+      //   subTitle.value = "";
+      //   userDesc.value = "";
+      // });
+
+      // Return data from Fetch API
+      btn.addEventListener("click", (events) => {
+        event.preventDefault();
+
+        cardUI.style.visibility = "visible";
+        fetch("student_data.json")
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
+            for (let i of result) {
+              cardTitle.innerHTML = i.title;
+              cardSubTitle.innerHTML = i.subTitle;
+              cardDesc.innerHTML = i.description;
+            }
+          });
+      });
     </script>
+    <!-- script end -->
   </body>
 </html>
