@@ -26,7 +26,6 @@ if (true) {
 // console.log(str1) // not accessible
 
 // 3. const --> block scope declaration not reassignable & not redeclared it!!
-
 const name = "Hey! Me from Pakistan!";
 console.log(name);
 
@@ -52,7 +51,7 @@ const fullName = (firstName, lastName) => {
 
 // Rest Operator
 function sum() {
-  console.log(arguments);
+  console.log(arguments); // here arguments is a Reserved keyword
   let result = 0;
   for (let i in arguments) {
     result += arguments[i];
@@ -87,7 +86,6 @@ const sum2 = (str, ...args) => {
 console.log(sum2(" The sum is:: ", 12, 12, 11, 10));
 
 // Spread Operator
-
 const sum3 = (str, ...params) => {
   let sum = 0;
   for (let i of params) {
@@ -105,6 +103,7 @@ console.log(sum3(" The sum is: ", ...args));
 let arr1 = [1, 2, 3, 4];
 let arr2 = [5, 6, 3, 4];
 
+// using spread operator colapse the two different array
 let arr3 = [...arr1, ...arr2];
 console.log(arr3);
 
@@ -563,20 +562,20 @@ console.log(a_strict);
 let strTry = "Mateen Nawaz";
 try {
   console.log(strTry);
-  console.log(n);
+  // console.log(n);
 } catch (error) {
   console.log(error);
 }
 
-const table_num = prompt("Enter a number for table: ");
+// const table_num = prompt("Enter a number for table: ");
 
-try {
-  for (let i = 1; i <= 10; i++) {
-    console.log(`${table_num} * ${i} = ${table_num * i}`);
-  }
-} catch (error) {
-  console.log(error);
-}
+// try {
+//   for (let i = 1; i <= 10; i++) {
+//     console.log(`${table_num} * ${i} = ${table_num * i}`);
+//   }
+// } catch (error) {
+//   console.log(error);
+// }
 
 // const clickBtn = document.getElementById("click_btn");
 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Refresher</title>
+  </head>
+  <body>
+    <h1 id="del">Javascript Refresher</h1>
+    <script>
+      "use strict";
+      //   console.log("This is called JS Refresher");
+      //   function myName(name) {
+      //     console.log("My name is " + name);
+      //   }
+
+      //   myName("Mateen");
+      const clickEvent = document.getElementById("del");
+
+      const obj1 = {
+        fullName: "Mateen Nawaz",
+        age: 21,
+        status: "Single",
+        func: function alertMsg() {
+          clickEvent.addEventListener("click", () => {
+            let msg = confirm("Are you sure delete?");
+            console.log(msg);
+          });
+        },
+      };
+
+      obj1.func();
+
+      // promises
+      const prom = new Promise((resolve, reject) => {
+        try {
+          resolve("This is resolve code!");
+        } catch (error) {
+          reject("This code is rejected!");
+        }
+      });
+
+      prom
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      const prom1 = (x, y) => {
+        return new Promise((res, rej) => {
+          let result = x * y;
+          setTimeout(() => {
+            if (result % 2 == 0) {
+              res(`Your result is even ${result}`);
+            } else {
+              rej(`Your result is odd.`);
+            }
+          }, 2000);
+        });
+      };
+
+      prom1(3, 6)
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      //   d = "Mateen";
+      //   console.log(d);
+
+      const newProm = (w, z) => {
+        return new Promise((resolve, reject) => {
+          let res = w * z;
+          if (res % 2 == 0) {
+            resolve(`${w} * ${z} = ${w * z}`);
+          } else {
+            reject(`The given number is odd!`);
+          }
+
+          setTimeout(() => {
+            for (let i = z; i <= 10; i++) {
+              console.log(`${w} * ${i} = ${w * i}`);
+            }
+          }, 3000);
+        });
+      };
+
+      let val1 = prompt("Enter a first no.");
+      let val2 = prompt("Enter a second no.");
+      newProm(val1, val2)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>
