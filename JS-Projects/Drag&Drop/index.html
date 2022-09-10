@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag & Drop Element</title>
+    <style>
+      body {
+        background-color: cadetblue;
+      }
+
+      .container {
+        text-align: center;
+        margin: 5rem 0;
+      }
+
+      .container h1 {
+        color: #fff;
+      }
+      .white-boxes {
+        width: 150px;
+        height: 150px;
+        background-color: #fff;
+        border: 3px solid dodgerblue;
+        display: inline-block;
+      }
+
+      .img-box {
+        width: 145px;
+        height: 145px;
+        background-image: url("./profile.png");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        top: 2px;
+        left: 3px;
+        cursor: pointer;
+      }
+
+      .hold {
+        border: 2px solid red;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      .dashed {
+        background-color: #ccdbf5;
+        border-style: dotted;
+        border-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Drag & Drop Element</h1>
+      <div class="white-boxes">
+        <div class="img-box" draggable="true"></div>
+      </div>
+      <div class="white-boxes"></div>
+      <div class="white-boxes"></div>
+      <div class="white-boxes"></div>
+    </div>
+
+    <!-- JavaScript Code -->
+    <script>
+      const whiteBoxes = document.querySelectorAll(".white-boxes");
+      const imgBox = document.querySelector(".img-box");
+
+      //  Event Listener on imgBox
+      imgBox.addEventListener("dragstart", (event) => {
+        console.log("Drag start has been triggered!");
+        // add new class dynamicaly for red border
+        event.target.className += " hold";
+
+        // remove hold class when element is picked up!
+        setTimeout(() => {
+          event.target.className = "hide";
+        }, 0);
+      });
+
+      imgBox.addEventListener("dragend", (event) => {
+        console.log("Drag end has been triggered!");
+        event.target.className = "img-box";
+      });
+
+      //   Event Listener for white-boxes
+      for (whiteBox of whiteBoxes) {
+        // triggered this event when we move the targeted element
+        whiteBox.addEventListener("dragover", () => {
+          event.preventDefault();
+          console.log("Drag over has been triggered!");
+        });
+
+        // triggered this event when we enter a new place
+        whiteBox.addEventListener("dragenter", (event) => {
+          event.target.className += " dashed";
+        });
+
+        whiteBox.addEventListener("dragleave", (e) => {
+          e.target.className = "white-boxes";
+        });
+
+        whiteBox.addEventListener("drop", (event) => {
+          event.target.append(imgBox);
+        });
+      }
+    </script>
+  </body>
+</html>

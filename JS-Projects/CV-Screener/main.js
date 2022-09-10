@@ -47,26 +47,42 @@ const img = document.getElementById("img");
 const profile = document.getElementById("profile");
 const btn = document.getElementById("next_btn");
 
-// function for CV iteration
-function* cvIterator(profiles) {
+// Iterator function for CV Iteration
+function cvIterator(profiles) {
   let nextIndex = 0;
-  return nextIndex < profiles.length
-    ? { value: profile[nextIndex++], done: false }
-    : { done: true };
+
+  return {
+    // Method for next CV
+    next: function () {
+      return nextIndex < profiles.length
+        ? { value: profiles[nextIndex++], done: false }
+        : { done: true };
+    },
+  };
 }
 
 const candidates = cvIterator(data);
 
-// event-listener for btn
-btn.addEventListener("click", () => {
+const nextCV = () => {
   let currCandidate = candidates.next().value;
-  img.innerHTML = `<img src=${currCandidate.img} alt='candidate'>`;
+  if (currCandidate != undefined) {
+    img.innerHTML = `<img src=${currCandidate.img} alt='candidate'>`;
+    profile.innerHTML = `<ul class="list-group">
+    <li class="list-group-item">${currCandidate.fullName}</li>
+    <li class="list-group-item">${currCandidate.age} years old.</li>
+    <li class="list-group-item"> lives in ${currCandidate.city}</li>
+    <li class="list-group-item"> works on ${currCandidate.language}</li>
+    <li class="list-group-item"> with this ${currCandidate.framework} framework</li>
+  </ul>`;
+  } else {
+    alert("End of the Applications!");
+    // return  to the first-one Application
+    window.location.reload();
+  }
+};
 
-  profile.innerHTML = `<ul class="list-group">
-  <li class="list-group-item">${currCandidate.fullName}</li>
-  <li class="list-group-item">${currCandidate.age} years old.</li>
-  <li class="list-group-item"> lives in ${currCandidate.city}</li>
-  <li class="list-group-item"> works on ${currCandidate.language}</li>
-  <li class="list-group-item"> with this ${currCandidate.framework} framework</li>
-</ul>`;
-});
+// Calling for first CV
+nextCV();
+
+// event-listener for btn
+btn.addEventListener("click", nextCV);
